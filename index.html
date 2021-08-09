@@ -5,30 +5,35 @@
     <title>Тест начинающего хацкера</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+  <header class="header">
+      <h1>Это тест, соберись!</h1>
+  </header>
   <body>
-    <header>
-      <h1 class="page-title">Тест начинающего хацкера</h1>
-    </header>
-    <main>
-      <section class="test-container">
-        <!--тут будет тест-->
-      </section>
-      <section>
-        <p>
-          Это тестовый тест в который я запилил свои знания по HTML, CSS и
-          немного JavaScript.
-        </p>
-      </section>
-      <section>
-        <h2 class="progress-heading">Прогресс</h2>
-        <dl class="progress">
-          <dt>Тест пройден</dt>
-          <dd><div class="progress-line">0%</div></dd>
-        </dl>
-      </section>
-    </main>
-    <footer>
-      <p class="footer-text">Made in China</p>
-    </footer>
-  </body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="quiz_head">
+                <div class="head_content" id="head">Это тест. Соберись!</div>
+            </div>
+            <div class="quiz_body">
+                <div class="buttons">
+                    <div class="buttons_content" id="buttons">
+                        <button class="button">Default button</button><br>
+                        <button class="button button_wrong">Wrong answer</button><br>
+                        <button class="button button_correct">Correct answer</button><br>
+                        <button class="button button_passive">Unclicked button</button><br>
+                    </div>
+                </div>
+
+                <div class="quiz_footer">
+                    <div class="footer_content" id="pages">0 / 0</div>
+                </div>
+            </div>
+            
+        </main>
+    </div>
+</body>
+<footer>
+    <p class="footer-text">Made in China</p>
+  </footer>
+  <script src="main.js"></script>
 </html>
