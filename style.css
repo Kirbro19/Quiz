@@ -1,10 +1,12 @@
 body, html
 {
-   width: 100%;
-   height: 100%;
+   display: flex;
+   /* flex-grow: 1; */
+   flex-direction: column;
+   /* width: 100%;
+   height: 100%; */
    margin: 0;
    padding: 0;
-   overflow: hidden;
    font-size: 16px;
    font-family: helvetica, arial;
    background: #f9f9f9;
@@ -14,18 +16,16 @@ body, html
 .header
 {
    text-align: center;
+   border: 2px solid red;
 }
 .wrapper
 {
-   width: 100%;
-   height: 100%;
-   display: table;
+   /* width: 100%; */
+   flex-grow: 1;
 }
  
 .main
 {
-   display: table-cell;
-   vertical-align: middle;
    text-align: center;
 }
  
@@ -40,6 +40,7 @@ body, html
    font-size: 20pt;
    margin: 10px;
    margin-bottom: 50px;
+   border: 2px solid red;
 }
  
 .head_content
@@ -50,31 +51,34 @@ body, html
 .quiz_body
 {
    margin: 10px;
+   border: 2px solid red;
 }
  
 .quiz_footer
 {
-   position: absolute;
-   bottom: 0;
-   display: block;
-   width: 100%;
+   margin: auto;
 }
  
 .footer_content
 {
    padding: 5px;
+   margin: 50px;
+   border: 2px solid blue;
 }
  
 .button
 {
+   display: flex;
+   flex-grow: 1;
+   justify-content: center;
    border: 0;
    border-radius: 10px;
    background: #2c44dd;
    color: #fff;
    padding: 10px 25px;
-   width: 70%;
+   width: 100%;
    font-size: 15pt;
-   display: block;
+   /* display: block; */
    margin: 2px auto;
    cursor: pointer;
 }
@@ -92,4 +96,10 @@ body, html
 .button_passive
 {
    background: #8b8b8b;
+}
+
+footer
+{
+   border: 2px solid red;
+   padding: 5px;
 }
