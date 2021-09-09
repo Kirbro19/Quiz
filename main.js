@@ -2,10 +2,10 @@ const headElem = document.getElementById("head");
 const buttonsElem = document.getElementById("buttons");
 const pagesElem = document.getElementById("pages");
 
-class Quiz {
-	constructor(type, questions, results) {
+const HOST = "https://my-json-server.typicode.com";
 
-		this.type = type;
+class Quiz {
+	constructor(questions, results) {
 
 		this.questions = questions;
 
@@ -112,83 +112,26 @@ function shuffle(questions) {
   }
 
 
-const questions = [
-  new Question("2 + 2 = ", [
-    new Answer("1", 0),
-    new Answer("2", 0),
-    new Answer("3", 0),
-    new Answer("4", 1)
-  ]),
+let questions = [];
 
-  new Question("3 + 3 = ", [
-    new Answer("2", 0),
-    new Answer("4", 0),
-    new Answer("6", 1),
-    new Answer("8", 0)
-  ]),
+let quiz = new Quiz(questions, results);
 
-  new Question("1 + 4 = ", [
-    new Answer("2", 0),
-    new Answer("4", 0),
-    new Answer("5", 1),
-    new Answer("7", 0)
-  ]),
+async function getResponse() {
+	const response = await fetch(HOST + "/Kirbro19/Quiz/questions");
+	const content = await response.json();
+	console.log(response);
+	console.log(content);
+	questions = content.map((question) => {
+		return new Question(question.quest, question.answers.map((answer) => new Answer(answer.text, answer.value)));
+	});
 
-  new Question("4 - 2 = ", [
-    new Answer("2", 1),
-    new Answer("3", 0),
-    new Answer("4", 0),
-    new Answer("6", 0)
-  ]),
+	quiz = new Quiz(questions, results);
 
-  new Question("7 - 3 = ", [
-    new Answer("2", 0),
-    new Answer("4", 1),
-    new Answer("6", 0),
-    new Answer("8", 0)
-  ]),
+	shuffle(questions);
+	update();
+};
 
-  new Question("1 + 1 = ", [
-    new Answer("2", 1),
-    new Answer("3", 0),
-    new Answer("5", 0),
-    new Answer("9", 0)
-  ]),
-
-  new Question("3 + 5 = ", [
-    new Answer("2", 0),
-    new Answer("4", 0),
-    new Answer("6", 0),
-    new Answer("8", 1)
-  ]),
-
-  new Question("7 + 1 = ", [
-    new Answer("0", 0),
-    new Answer("5", 0),
-    new Answer("6", 0),
-    new Answer("8", 1)
-  ]),
-
-  new Question("3 + 4 = ", [
-    new Answer("2", 0),
-    new Answer("4", 0),
-    new Answer("5", 0),
-    new Answer("7", 1)
-  ]),
-
-  new Question("5 + 4 = ", [
-    new Answer("1", 0),
-    new Answer("3", 0),
-    new Answer("4", 0),
-    new Answer("9", 1)
-  ]),
-];
-
-const quiz = new Quiz(1, questions, results);
-
-shuffle(questions);
-
-update();
+getResponse();
 
 function update() {
 	if(quiz.current < quiz.questions.length) {
@@ -239,14 +182,13 @@ function handleAnswerButtonClick(index) {
 		btns[i].className = "button button_passive";
 	}
 
-	if(quiz.type === 1) {
-		if(correct >= 0) {
+	if(correct >= 0) {
 			btns[correct].className = "button button_correct";
-		}
+	}
 
-		if(index != correct) {
+	if(index != correct) {
 			btns[index].className = "button button_wrong";
-		} 
+
 	} else {
 
 		btns[index].className = "button button_correct";
