@@ -1,9 +1,7 @@
 body, html
 {
    display: flex;
-   /* flex-grow: 1; */
    flex-direction: column;
-   /* width: 100%; */
    height: 100%;
    margin: 0;
    padding: 0;
@@ -16,11 +14,9 @@ body, html
 .header
 {
    text-align: center;
-   /* border: 2px solid red; */
 }
 .wrapper
 {
-   /* width: 100%; */
    flex-grow: 1;
 }
  
@@ -40,7 +36,6 @@ body, html
    font-size: 20pt;
    margin: 10px;
    margin-bottom: 50px;
-   /* border: 2px solid red; */
 }
  
 .head_content
@@ -55,7 +50,6 @@ body, html
 .quiz_body
 {
    margin: 10px;
-   /* border: 2px solid red; */
 }
  
 .quiz_footer
@@ -87,7 +81,6 @@ body, html
    padding: 10px 25px;
    width: 100%;
    font-size: 15pt;
-   /* display: block; */
    margin: 2px auto;
    cursor: pointer;
 }
@@ -109,7 +102,6 @@ body, html
 
 footer
 {
-   /* border: 2px solid red; */
    padding: 5px;
    margin-left: 15px;
 }

@@ -93,22 +93,19 @@ class Result {
 }
 
 const results = [
-  new Result("Лошара", 0),
+  new Result("Попробуй еще", 0),
   new Result("Мог лучше", 3),
   new Result("Ещё бы чуть-чуть",6),
-  new Result("Красава!", 9),
+  new Result("Молодец!", 9),
 ];
 
 const result = [2, 'hello', true].map((item) => typeof item);
-
-console.log(result);
 
 function shuffle(questions) {
 	for (let i = questions.length - 1; i > 0; i--) {
 	  let j = Math.floor(Math.random() * (i + 1));
 	  [questions[i], questions[j]] = [questions[j], questions[i]];
 	}
-	//return questions;
   }
 
 
@@ -119,8 +116,6 @@ let quiz = new Quiz(questions, results);
 async function getResponse() {
 	const response = await fetch(HOST + "/Kirbro19/Quiz/questions");
 	const content = await response.json();
-	console.log(response);
-	console.log(content);
 	questions = content.map((question) => {
 		return new Question(question.quest, question.answers.map((answer) => new Answer(answer.text, answer.value)));
 	});
